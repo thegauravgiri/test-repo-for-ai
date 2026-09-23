@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Naruto Universe Diagram</title>
+<style>
+  :root {
+    --orange: #ff7a1a;
+    --dark: #1b1b2f;
+    --panel: #262640;
+    --leaf: #f2b134;
+    --line: #6b6b8f;
+    --text: #eef0f8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 40px 20px;
+    background: radial-gradient(circle at top, #2a2a45, var(--dark));
+    color: var(--text);
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  h1 {
+    color: var(--orange);
+    text-shadow: 0 0 10px rgba(255,122,26,0.6);
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    color: var(--leaf);
+    margin-bottom: 40px;
+    font-style: italic;
+  }
+  .chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+  }
+  .node {
+    background: linear-gradient(160deg, var(--panel), #1c1c30);
+    border: 2px solid var(--orange);
+    border-radius: 10px;
+    padding: 12px 18px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    min-width: 140px;
+  }
+  .node .name {
+    font-weight: bold;
+    font-size: 15px;
+    color: var(--text);
+  }
+  .node .role {
+    font-size: 12px;
+    color: var(--leaf);
+    margin-top: 2px;
+  }
+  .row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    position: relative;
+  }
+  .connector-v {
+    width: 2px;
+    height: 30px;
+    background: var(--line);
+  }
+  .connector-row {
+    position: relative;
+    height: 30px;
+    width: 100%;
+    max-width: 640px;
+  }
+  .connector-row::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12.5%;
+    right: 12.5%;
+    height: 2px;
+    background: var(--line);
+  }
+  .connector-row .drop {
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 30px;
+    background: var(--line);
+  }
+  .group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .team-box {
+    border: 2px dashed var(--leaf);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 30px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: rgba(242, 177, 52, 0.05);
+  }
+  .team-title {
+    color: var(--leaf);
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .legend {
+    margin-top: 50px;
+    font-size: 13px;
+    color: #a9a9c9;
+    text-align: center;
+    max-width: 600px;
+  }
+</style>
+</head>
+<body>
+
+  <h1>NARUTO</h1>
+  <div class="subtitle">Konohagakure Leadership &amp; Team 7 Relationship Diagram</div>
+
+  <div class="chart">
+
+    <div class="node">
+      <div class="name">Hashirama Senju</div>
+      <div class="role">1st Hokage</div>
+    </div>
+
+    <div class="connector-v"></div>
+
+    <div class="node">
+      <div class="name">Hiruzen Sarutobi</div>
+      <div class="role">3rd Hokage</div>
+    </div>
+
+    <div class="connector-v"></div>
+
+    <div class="row">
+      <div class="node">
+        <div class="name">Minato Namikaze</div>
+        <div class="role">4th Hokage</div>
+      </div>
+    </div>
+
+    <div class="connector-v"></div>
+
+    <div class="node">
+      <div class="name">Kakashi Hatake</div>
+      <div class="role">6th Hokage / Jonin Sensei</div>
+    </div>
+
+    <div class="connector-v"></div>
+
+    <div class="team-box">
+      <div class="group">
+        <div class="node">
+          <div class="name">Naruto Uzumaki</div>
+          <div class="role">Jinchūriki of Kurama</div>
+        </div>
+      </div>
+      <div class="group">
+        <div class="node">
+          <div class="name">Sasuke Uchiha</div>
+          <div class="role">Last of the Uchiha</div>
+        </div>
+      </div>
+      <div class="group">
+        <div class="node">
+          <div class="name">Sakura Haruno</div>
+          <div class="role">Medical Ninja</div>
+        </div>
+      </div>
+    </div>
+    <div class="team-title" style="margin-top:8px;">Team 7</div>
+
+  </div>
+
+  <div class="legend">
+    Dashed box groups the members of Team 7, trained directly under Kakashi Hatake,
+    who succeeded Hiruzen &amp; Minato in the line of Hokage leadership of the
+    Hidden Leaf Village (Konohagakure).
+  </div>
+
+</body>
+</html>
