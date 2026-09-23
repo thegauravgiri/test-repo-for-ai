@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: #111;
+      color: #fff;
+      font-family: sans-serif;
+    }
+
+    .dot {
+      width: 20px;
+      height: 20px;
+      margin-top: 40px;
+      border-radius: 50%;
+      background: red;
+      box-shadow: 0 0 20px 10px red;
+      animation: zoom-shrink 2s ease-in-out infinite;
+    }
+
+    @keyframes zoom-shrink {
+      0% {
+        transform: scale(4);
+        opacity: 0.4;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Hello, World!</h1>
+  <div class="dot"></div>
+</body>
+</html>
