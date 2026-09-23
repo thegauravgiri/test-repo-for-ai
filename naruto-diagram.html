@@ -2,194 +2,216 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Naruto Universe Diagram</title>
+<title>Naruto Face</title>
 <style>
-  :root {
-    --orange: #ff7a1a;
-    --dark: #1b1b2f;
-    --panel: #262640;
-    --leaf: #f2b134;
-    --line: #6b6b8f;
-    --text: #eef0f8;
-  }
-  * { box-sizing: border-box; }
   body {
     margin: 0;
-    padding: 40px 20px;
-    background: radial-gradient(circle at top, #2a2a45, var(--dark));
-    color: var(--text);
-    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
-  }
-  h1 {
-    color: var(--orange);
-    text-shadow: 0 0 10px rgba(255,122,26,0.6);
-    letter-spacing: 2px;
-    margin-bottom: 4px;
-  }
-  .subtitle {
-    color: var(--leaf);
-    margin-bottom: 40px;
-    font-style: italic;
-  }
-  .chart {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 1000px;
-  }
-  .node {
-    background: linear-gradient(160deg, var(--panel), #1c1c30);
-    border: 2px solid var(--orange);
-    border-radius: 10px;
-    padding: 12px 18px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    min-width: 140px;
-  }
-  .node .name {
-    font-weight: bold;
-    font-size: 15px;
-    color: var(--text);
-  }
-  .node .role {
-    font-size: 12px;
-    color: var(--leaf);
-    margin-top: 2px;
-  }
-  .row {
-    display: flex;
     justify-content: center;
-    gap: 40px;
+    background: radial-gradient(circle at center, #cfeeff, #8fd3f4);
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  .portrait {
     position: relative;
+    width: 340px;
+    height: 380px;
   }
-  .connector-v {
-    width: 2px;
-    height: 30px;
-    background: var(--line);
+
+  /* Spiky hair, drawn as triangles fanned around the head */
+  .spike {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 34px solid transparent;
+    border-right: 34px solid transparent;
+    border-bottom: 100px solid #ffcc33;
+    top: -40px;
+    transform-origin: bottom center;
   }
-  .connector-row {
-    position: relative;
-    height: 30px;
-    width: 100%;
-    max-width: 640px;
+  .spike.s1 { left: 8px;   transform: rotate(-38deg); }
+  .spike.s2 { left: 48px;  transform: rotate(-22deg); }
+  .spike.s3 { left: 92px;  transform: rotate(-8deg); }
+  .spike.s4 { left: 138px; transform: rotate(6deg); }
+  .spike.s5 { left: 182px; transform: rotate(20deg); }
+  .spike.s6 { left: 224px; transform: rotate(36deg); }
+
+  /* Face */
+  .face {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 260px;
+    height: 260px;
+    background: #ffd8a8;
+    border-radius: 50% 50% 46% 46% / 55% 55% 45% 45%;
+    box-shadow: inset 0 -20px 30px rgba(200,140,80,0.25);
+    z-index: 2;
   }
-  .connector-row::before {
+
+  /* Headband */
+  .headband {
+    position: absolute;
+    top: 78px;
+    left: 20px;
+    width: 300px;
+    height: 34px;
+    background: #3a3a3a;
+    z-index: 3;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  }
+  .headband .plate {
+    position: absolute;
+    left: 50%;
+    top: -6px;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 46px;
+    background: linear-gradient(160deg, #d9d9d9, #a8a8a8);
+    border-radius: 6px;
+    border: 2px solid #666;
+  }
+  .headband .plate .leaf {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: #2f6b2f;
+    font-weight: bold;
+  }
+  .headband .tail {
+    position: absolute;
+    top: 30px;
+    width: 16px;
+    height: 90px;
+    background: #3a3a3a;
+  }
+  .headband .tail.left { left: 30px; transform: rotate(8deg); }
+  .headband .tail.right { right: 30px; transform: rotate(-8deg); }
+
+  /* Eyes */
+  .eye {
+    position: absolute;
+    top: 150px;
+    width: 34px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 4;
+    box-shadow: 0 0 0 2px #222;
+  }
+  .eye.left { left: 78px; }
+  .eye.right { right: 78px; }
+  .pupil {
+    position: absolute;
+    top: 4px;
+    left: 10px;
+    width: 12px;
+    height: 12px;
+    background: #2d8fd8;
+    border-radius: 50%;
+  }
+  .pupil::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 12.5%;
-    right: 12.5%;
-    height: 2px;
-    background: var(--line);
+    width: 12px;
+    height: 12px;
+    background: #111;
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
   }
-  .connector-row .drop {
+
+  /* Eyebrows */
+  .brow {
     position: absolute;
-    top: 0;
-    width: 2px;
-    height: 30px;
-    background: var(--line);
+    top: 138px;
+    width: 36px;
+    height: 5px;
+    background: #b8860b;
+    border-radius: 3px;
+    z-index: 4;
   }
-  .group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .brow.left { left: 76px; transform: rotate(-6deg); }
+  .brow.right { right: 76px; transform: rotate(6deg); }
+
+  /* Whisker marks */
+  .whisker {
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background: #b5651d;
+    border-radius: 2px;
+    z-index: 4;
   }
-  .team-box {
-    border: 2px dashed var(--leaf);
-    border-radius: 12px;
-    padding: 20px;
-    margin-top: 30px;
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    justify-content: center;
-    background: rgba(242, 177, 52, 0.05);
+  .whisker.l1 { top: 190px; left: 46px; transform: rotate(-6deg); }
+  .whisker.l2 { top: 199px; left: 44px; transform: rotate(-2deg); }
+  .whisker.l3 { top: 208px; left: 46px; transform: rotate(4deg); }
+  .whisker.r1 { top: 190px; right: 46px; transform: rotate(6deg); }
+  .whisker.r2 { top: 199px; right: 44px; transform: rotate(2deg); }
+  .whisker.r3 { top: 208px; right: 46px; transform: rotate(-4deg); }
+
+  /* Nose and mouth */
+  .nose {
+    position: absolute;
+    top: 195px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 10px;
+    background: #e0a978;
+    border-radius: 3px;
+    z-index: 4;
   }
-  .team-title {
-    color: var(--leaf);
-    font-size: 14px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  .legend {
-    margin-top: 50px;
-    font-size: 13px;
-    color: #a9a9c9;
-    text-align: center;
-    max-width: 600px;
+  .mouth {
+    position: absolute;
+    top: 230px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 46px;
+    height: 18px;
+    border-bottom: 4px solid #a55;
+    border-radius: 0 0 30px 30px;
+    z-index: 4;
   }
 </style>
 </head>
 <body>
 
-  <h1>NARUTO</h1>
-  <div class="subtitle">Konohagakure Leadership &amp; Team 7 Relationship Diagram</div>
+  <div class="portrait">
+    <div class="spike s1"></div>
+    <div class="spike s2"></div>
+    <div class="spike s3"></div>
+    <div class="spike s4"></div>
+    <div class="spike s5"></div>
+    <div class="spike s6"></div>
 
-  <div class="chart">
+    <div class="face"></div>
 
-    <div class="node">
-      <div class="name">Hashirama Senju</div>
-      <div class="role">1st Hokage</div>
+    <div class="brow left"></div>
+    <div class="brow right"></div>
+
+    <div class="eye left"><div class="pupil"></div></div>
+    <div class="eye right"><div class="pupil"></div></div>
+
+    <div class="nose"></div>
+
+    <div class="whisker l1"></div>
+    <div class="whisker l2"></div>
+    <div class="whisker l3"></div>
+    <div class="whisker r1"></div>
+    <div class="whisker r2"></div>
+    <div class="whisker r3"></div>
+
+    <div class="mouth"></div>
+
+    <div class="headband">
+      <div class="tail left"></div>
+      <div class="tail right"></div>
+      <div class="plate"><span class="leaf">木</span></div>
     </div>
-
-    <div class="connector-v"></div>
-
-    <div class="node">
-      <div class="name">Hiruzen Sarutobi</div>
-      <div class="role">3rd Hokage</div>
-    </div>
-
-    <div class="connector-v"></div>
-
-    <div class="row">
-      <div class="node">
-        <div class="name">Minato Namikaze</div>
-        <div class="role">4th Hokage</div>
-      </div>
-    </div>
-
-    <div class="connector-v"></div>
-
-    <div class="node">
-      <div class="name">Kakashi Hatake</div>
-      <div class="role">6th Hokage / Jonin Sensei</div>
-    </div>
-
-    <div class="connector-v"></div>
-
-    <div class="team-box">
-      <div class="group">
-        <div class="node">
-          <div class="name">Naruto Uzumaki</div>
-          <div class="role">Jinchūriki of Kurama</div>
-        </div>
-      </div>
-      <div class="group">
-        <div class="node">
-          <div class="name">Sasuke Uchiha</div>
-          <div class="role">Last of the Uchiha</div>
-        </div>
-      </div>
-      <div class="group">
-        <div class="node">
-          <div class="name">Sakura Haruno</div>
-          <div class="role">Medical Ninja</div>
-        </div>
-      </div>
-    </div>
-    <div class="team-title" style="margin-top:8px;">Team 7</div>
-
-  </div>
-
-  <div class="legend">
-    Dashed box groups the members of Team 7, trained directly under Kakashi Hatake,
-    who succeeded Hiruzen &amp; Minato in the line of Hokage leadership of the
-    Hidden Leaf Village (Konohagakure).
   </div>
 
 </body>
