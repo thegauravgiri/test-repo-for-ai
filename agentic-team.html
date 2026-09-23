@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic Team</title>
+<style>
+  :root {
+    color-scheme: light;
+    --page:           #f9f9f7;
+    --surface:        #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --border:         rgba(11,11,11,0.10);
+    --line:           #c3c2b7;
+
+    --role-1: #2a78d6; /* orchestrator - blue */
+    --role-2: #eb6834; /* researcher  - orange */
+    --role-3: #1baf7a; /* coder       - aqua */
+    --role-4: #eda100; /* reviewer    - yellow */
+    --role-5: #4a3aa7; /* tester      - violet */
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --page:           #0d0d0d;
+      --surface:        #1a1a19;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted:     #898781;
+      --border:         rgba(255,255,255,0.10);
+      --line:           #383835;
+
+      --role-1: #3987e5;
+      --role-2: #d95926;
+      --role-3: #199e70;
+      --role-4: #c98500;
+      --role-5: #9085e9;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--page);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.55;
+  }
+
+  main {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  header {
+    margin-bottom: 48px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+
+  header p.tagline {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 1.05rem;
+  }
+
+  section {
+    margin-bottom: 56px;
+  }
+
+  section h2 {
+    font-size: 1.3rem;
+    margin: 0 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .intro p {
+    color: var(--text-primary);
+    margin: 0 0 14px;
+    max-width: 68ch;
+  }
+
+  .intro ul {
+    margin: 16px 0 0;
+    padding-left: 20px;
+    color: var(--text-secondary);
+  }
+
+  .intro li {
+    margin-bottom: 6px;
+  }
+
+  .intro li strong {
+    color: var(--text-primary);
+  }
+
+  figure {
+    margin: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  figure svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  figcaption {
+    margin-top: 16px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .node-label {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 14px;
+    fill: #ffffff;
+    font-weight: 600;
+  }
+
+  .node-sub {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 11px;
+    fill: rgba(255,255,255,0.85);
+  }
+
+  .edge {
+    stroke: var(--line);
+    stroke-width: 1.5;
+    fill: none;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>The Agentic Team</h1>
+    <p class="tagline">How a coordinated group of specialized AI agents plans, builds, and verifies work together.</p>
+  </header>
+
+  <section class="intro">
+    <h2>What is an agentic team?</h2>
+    <p>
+      An agentic team is a small group of AI agents, each with a narrow role, that
+      collaborate under a shared orchestrator to complete a larger task. Rather than
+      relying on a single model to do everything, work is decomposed and routed to
+      the agent best suited for each step &mdash; mirroring how a human team splits
+      planning, research, implementation, and review.
+    </p>
+    <p>
+      This division of labor improves reliability and speed: each agent operates
+      with a focused context and toolset, the orchestrator keeps the overall goal in
+      view, and results are checked before they're considered done.
+    </p>
+    <ul>
+      <li><strong>Orchestrator</strong> &mdash; breaks the goal into tasks and assigns them.</li>
+      <li><strong>Researcher</strong> &mdash; gathers context, reads code, and answers open questions.</li>
+      <li><strong>Coder</strong> &mdash; implements the changes.</li>
+      <li><strong>Reviewer</strong> &mdash; checks the output for correctness and quality.</li>
+      <li><strong>Tester</strong> &mdash; verifies behavior before it ships.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Team structure</h2>
+    <figure>
+      <svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="diagramTitle diagramDesc">
+        <title id="diagramTitle">Agentic team structure diagram</title>
+        <desc id="diagramDesc">An orchestrator agent at the top connects to four specialized agents below: Researcher, Coder, Reviewer, and Tester.</desc>
+
+        <!-- edges: orchestrator -> each role (centers at x=115,305,495,685; trunk at y=110) -->
+        <path class="edge" d="M400,84 L400,110 L115,110 L115,146" />
+        <path class="edge" d="M400,84 L400,110 L305,110 L305,146" />
+        <path class="edge" d="M400,84 L400,110 L495,110 L495,146" />
+        <path class="edge" d="M400,84 L400,110 L685,110 L685,146" />
+
+        <!-- Orchestrator node -->
+        <rect x="310" y="24" width="180" height="60" rx="10" fill="var(--role-1)" />
+        <text x="400" y="50" text-anchor="middle" class="node-label">Orchestrator</text>
+        <text x="400" y="68" text-anchor="middle" class="node-sub">plans &amp; assigns tasks</text>
+
+        <!-- Researcher -->
+        <rect x="40" y="146" width="150" height="60" rx="10" fill="var(--role-2)" />
+        <text x="115" y="172" text-anchor="middle" class="node-label">Researcher</text>
+        <text x="115" y="190" text-anchor="middle" class="node-sub">gathers context</text>
+
+        <!-- Coder -->
+        <rect x="230" y="146" width="150" height="60" rx="10" fill="var(--role-3)" />
+        <text x="305" y="172" text-anchor="middle" class="node-label">Coder</text>
+        <text x="305" y="190" text-anchor="middle" class="node-sub">implements changes</text>
+
+        <!-- Reviewer -->
+        <rect x="420" y="146" width="150" height="60" rx="10" fill="var(--role-4)" />
+        <text x="495" y="172" text-anchor="middle" class="node-label">Reviewer</text>
+        <text x="495" y="190" text-anchor="middle" class="node-sub">checks quality</text>
+
+        <!-- Tester -->
+        <rect x="610" y="146" width="150" height="60" rx="10" fill="var(--role-5)" />
+        <text x="685" y="172" text-anchor="middle" class="node-label">Tester</text>
+        <text x="685" y="190" text-anchor="middle" class="node-sub">verifies behavior</text>
+
+        <!-- output flow: all four converge to trunk at y=240, then down to result box -->
+        <path class="edge" d="M115,206 L115,240 L685,240 L685,206" />
+        <path class="edge" d="M305,206 L305,240" />
+        <path class="edge" d="M495,206 L495,240" />
+
+        <path class="edge" d="M400,240 L400,280" marker-end="url(#arrow)" />
+        <rect x="300" y="280" width="200" height="56" rx="10" fill="none" stroke="var(--line)" stroke-width="1.5" />
+        <text x="400" y="304" text-anchor="middle" class="node-sub" style="fill: var(--text-primary); font-size:14px; font-weight:600;">Completed Task</text>
+        <text x="400" y="322" text-anchor="middle" class="node-sub" style="fill: var(--text-secondary);">reviewed &amp; verified output</text>
+
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="var(--line)" />
+          </marker>
+        </defs>
+      </svg>
+      <figcaption>
+        The orchestrator delegates to specialized agents; their outputs converge into a single reviewed and tested result.
+      </figcaption>
+      <div class="legend">
+        <div class="legend-item"><span class="swatch" style="background: var(--role-1);"></span> Orchestrator</div>
+        <div class="legend-item"><span class="swatch" style="background: var(--role-2);"></span> Researcher</div>
+        <div class="legend-item"><span class="swatch" style="background: var(--role-3);"></span> Coder</div>
+        <div class="legend-item"><span class="swatch" style="background: var(--role-4);"></span> Reviewer</div>
+        <div class="legend-item"><span class="swatch" style="background: var(--role-5);"></span> Tester</div>
+      </div>
+    </figure>
+  </section>
+</main>
+</body>
+</html>
